@@ -1,4 +1,5 @@
-import { Navbar, Container, Nav,NavDropdown,FormControl,Button,Form} from 'react-bootstrap'
+import { Navbar, Container, Nav,NavDropdown,FormControl,Button,Form} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 export default function AppNavbar() {
@@ -13,8 +14,8 @@ export default function AppNavbar() {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="#action1">Acceuil</Nav.Link>
-        <Nav.Link href="#action2">Link</Nav.Link>
+        <Nav.Link href="#action1" as={Link} to="/App">App</Nav.Link>
+        <Nav.Link href="#action2" as={Link} to="/Acceuil">Acceuil</Nav.Link>
         <NavDropdown title="Link" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
