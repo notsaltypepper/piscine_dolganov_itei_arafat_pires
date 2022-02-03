@@ -6,7 +6,7 @@ export default function AppNavbar() {
   return (
     <Navbar bg="light" expand="lg">
   <Container fluid>
-    <Navbar.Brand href="#">Carnet de notes</Navbar.Brand>
+    <Navbar.Brand href="#">Do'Notes</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -15,7 +15,7 @@ export default function AppNavbar() {
         navbarScroll
       >
 
-        <Nav.Link href="#action1" as={Link} to="/App" color="white">App</Nav.Link>
+        <Nav.Link href="#action1" as={Link} to="/App" color="white">Mes Carnets</Nav.Link>
         <Nav.Link href="#action2" as={Link} to="/Acceuil">Acceuil</Nav.Link>
         <NavDropdown title="Link" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Action</NavDropdown.Item>

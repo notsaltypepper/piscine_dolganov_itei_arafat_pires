@@ -15,7 +15,7 @@ export default function CarnetNoteListEnfant({card}){
                     <Card.Text>
                     Mon Premier Carnet
                     </Card.Text>
-                    <Button className="visualiser" variant="primary">Visualiser le Carnet</Button>
+                    <Button onClick=""className="visualiser" variant="primary">Visualiser le Carnet</Button>
                 </Card.Body>
             </Card>
             </li>
