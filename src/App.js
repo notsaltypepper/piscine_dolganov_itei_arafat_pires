@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import Counter from './Components/counter/Counter'
+
 import { Container, Row, Col, Button, Navbar } from 'react-bootstrap'
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
       <Button variant="danger" onClick={deleteAll}>
         Tout effacer
       </Button>{' '}
-      <Counter />
+      
     </div>
   )
 }
