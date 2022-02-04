@@ -1,9 +1,7 @@
-
 import { useState } from 'react';
 import CarnetNoteList from './Components/Carnet-Note/CarnetNoteList';
 import Form from './Components/Carnet-Note/Form';
 import { Link } from 'react-router-dom'
-
 import { Container, Row, Col, Button, Navbar } from 'react-bootstrap'
 
 export default function App() {
