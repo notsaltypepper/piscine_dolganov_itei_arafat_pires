@@ -5,11 +5,8 @@ import App from './App'
 import AppNavbar from './Components/App-Navbar/App-Navbar'
 import reportWebVitals from './reportWebVitals'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Form from './Components/Carnet-Note/Form'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import CarnetNoteList from './Components/Carnet-Note/CarnetNoteList'
 import AcceuilPage from './Components/AcceuilPage/AcceuilPage'
-import NoteAppPage from './Components/NoteAddPage/NoteAddPage'
 import NoteAddPage from './Components/NoteAddPage/NoteAddPage'
 
 ReactDOM.render(
