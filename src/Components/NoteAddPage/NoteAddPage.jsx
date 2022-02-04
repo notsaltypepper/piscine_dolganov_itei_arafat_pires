@@ -5,7 +5,7 @@ export default function NoteAddPage(){
     return(
         
         <div>
-            <header>Veuillez Saisir Vos Notes...</header>
+            <header>Veuillez Saisir Vos Notes...,Merci</header>
 
            
         </div>
