@@ -8,13 +8,13 @@ export default function Form({setInputText,setCarnets,carnets,inputText}){
     }
     const submitCarnetH=(e)=>{
         e.preventDefault()
-        setCarnets([...carnets,{text: inputText,completed:false,id:Date.now()}])
+        setCarnets([...carnets,{text: inputText,completed:false}])
 
         setInputText('')
     }
     return( 
         <form>
-            <input value={inputText} type="text" className="carnet-input" onChange={inputTextH}/>
+            <input value={inputText} type="text" className="carnet-input" required onChange={inputTextH} />
             <button onClick={submitCarnetH} className="carnet-button" type="submit"></button>
             <i className="fas fa-plus-square"></i>
             <div className="select">

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import NotesPage from '../NotesPage/NotesPage';
+
 import { Navbar, Container, Nav,NavDropdown,FormControl,Button,Card} from 'react-bootstrap';
 
 //+ card.id
@@ -16,9 +18,10 @@ export default function CarnetNoteListEnfant({card}){
                     <Card.Text>
                     Mon Premier Carnet
                     </Card.Text>
-                    <Button as={Link} to={'/NoteAddPage/' }className="visualiser" variant="primary">Visualiser le Carnet</Button>
+                    <Button as={Link} to={'/NotesPage' }className="visualiser" variant="primary">Visualiser le Carnet</Button>
                 </Card.Body>
             </Card>
+            
             </li>
 
         </div>

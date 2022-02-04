@@ -1,5 +1,10 @@
 import { Cards} from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Container, Row, Col, Button, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { NotesProvider } from './../../Provider/notesProvider';
+
 
 export default function CarnetNote(){
     return(
