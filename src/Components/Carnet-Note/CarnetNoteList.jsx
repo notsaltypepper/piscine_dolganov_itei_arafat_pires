@@ -6,7 +6,7 @@ export default function CarnetNoteList({carnets}){
         
         <div className="carnet-container">
            <ul className="carnet-list">
-               {carnets.map(carnet =>(
+               {carnets.map((carnet) =>(
                    <CarnetNoteListEnfant key={carnet.id} card={carnet.text} id={carnet.id} />
                ))}
 

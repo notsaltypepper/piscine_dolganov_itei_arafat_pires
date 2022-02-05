@@ -78,7 +78,7 @@ export default function ModificationPage(){
                                 rows={2} placeholder="description"/>
                         <Button variant="light">Mode-Web</Button>
                  </Form.Group>
-                  <Button variant="dark" type="submit">Sauvegarder</Button>
+                  <Button variant="dark" type="submit" as={Link} to={'/PreviNote/' + note.id}>Sauvegarder</Button>
                   <Button variant="secondary"  type="reset" onClick={reset}>Annuler</Button>
             </Form>
             <Button variant="primary" size="lg" active as={Link} to="/App">

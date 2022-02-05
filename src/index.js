@@ -13,6 +13,7 @@ import AcceuilPage from './Components/AcceuilPage/AcceuilPage';
 import NoteAddPage from './Components/NoteAddPage/NoteAddPage';
 import NotesPage from './Components/NotesPage/NotesPage';
 import ModificationPage from './Components/ModificationPage/ModificationPage';
+import PreviNote from './Components/PreviNote/PreviNote';
 
 ReactDOM.render(
   
@@ -31,8 +32,9 @@ ReactDOM.render(
           <Route path="/Acceuil" element={<AcceuilPage />} />
           <Route path="/App" element={<App />} />
           <Route path="/NoteAddPage" element={<NoteAddPage />} />
-          <Route path="/NotesPage" element={<NotesPage />} />
+          <Route path="/NotesPage/:id" element={<NotesPage />} />
           <Route path="/ModificationPage/:id" element={<ModificationPage />} />
+          <Route path="/PreviNote/:id" element={<PreviNote />} />
           
           
           

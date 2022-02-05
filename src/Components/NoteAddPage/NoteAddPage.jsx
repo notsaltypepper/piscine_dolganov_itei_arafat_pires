@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button,Form,FormControl,FormLabel,FormGroup,Select} from 'react-bootstrap';
 import { useState,useEffect} from 'react';
 import { NotesProvider } from './../Provider/notesProvider';
+import showdown from 'showdown';
 
 export default function NoteAddPage(){
   
@@ -16,6 +17,7 @@ export default function NoteAddPage(){
   const navigate = useNavigate()
 
   function add(e) {
+     
     e.preventDefault()
     notesProvider.add(noteAdd)
     navigate('/App')
@@ -63,7 +65,7 @@ export default function NoteAddPage(){
                                 rows={2} placeholder="description"/>
                         <Button variant="light">Mode-Web</Button>
                  </Form.Group>
-                  <Button variant="dark" type="submit">Sauvegarder</Button>
+                  <Button variant="dark" type="submit" >Ajouter</Button>
                   <Button variant="secondary"  type="reset">Annuler</Button>
             </Form>
             <Button variant="primary" size="lg" active as={Link} to="/App">

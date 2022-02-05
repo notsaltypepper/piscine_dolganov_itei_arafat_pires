@@ -6,7 +6,7 @@ import { Navbar, Container, Nav,NavDropdown,FormControl,Button,Card} from 'react
 
 //+ card.id
 
-export default function CarnetNoteListEnfant({card}){
+export default function CarnetNoteListEnfant({card,id}){
     return(
         <div className="carnetEnfant">
             <li>
@@ -18,7 +18,7 @@ export default function CarnetNoteListEnfant({card}){
                     <Card.Text>
                     Mon Premier Carnet
                     </Card.Text>
-                    <Button as={Link} to={'/NotesPage' }className="visualiser" variant="primary">Visualiser le Carnet</Button>
+                    <Button as={Link} to={'/NotesPage/'+ id }className="visualiser" variant="primary">Visualiser le Carnet</Button>
                 </Card.Body>
             </Card>
             

@@ -3,8 +3,9 @@ import { Button,Form,FormControl,FormLabel,FormGroup,Select,Col,Container,Table,
 import { useState,useEffect} from 'react';
 import { NotesProvider } from './../Provider/notesProvider';
 
-export default function NotesPage(){
-  const [notes, setNotes] = useState([])
+
+export default function PreviNote(){
+    const [notes, setNotes] = useState([])
   const notesProvider = new NotesProvider()
 
   useEffect(() => {
@@ -26,23 +27,25 @@ export default function NotesPage(){
 
   let displaynotes = notes.map((note, indice) => {
     return (
+        
       <tr key={'notes-' + note.id}>
         <td>{indice + 1}</td>
         <td>{note.titre}</td>
         <td>{note.description}</td>
-        
+       
         <td>
           
-          <Button as={Link} to={'/PreviNote/' + note.id} variant="success">
-            Observer
+          <Button as={Link} to={'/ModificationPage/' + note.id} variant="warning">
+            Modifier
           </Button>
+           
         </td>
-        <td>
-          <Button variant="danger" onClick={() => remove(note)}>
-            Supprimer
-          </Button>
-        </td>
+        <div className="md-12"> <Button as={Link} to={'/NotesPage/'+note.id}>
+                Retour
+              </Button></div>
       </tr>
+      
+      
     )
   })
   return (
@@ -60,9 +63,7 @@ export default function NotesPage(){
         <Row>
           <Col md={12}>
             <div className="mb-3">
-              <Button as={Link} to="/NoteAddPage">
-                Ajouter un note
-              </Button>
+             
             </div>
 
             <Table striped bordered hover variant='dark'>
@@ -73,7 +74,7 @@ export default function NotesPage(){
                   <th>Description</th>
                  
                   <th>Modifier</th>
-                  <th>Supprimer</th>
+                 
                 </tr>
               </thead>
               <tbody>{displaynotes}</tbody>
@@ -84,3 +85,36 @@ export default function NotesPage(){
     </>
   )
 }
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* <Form>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Label>Titre</Form.Label>
+                        <Form.Control type="text" placeholder="Titre" />
+                    </Form.Group>
+                   
+                </Form>
+                <Form>
+                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows={3} />
+                    </Form.Group>
+
+                </Form>*/

@@ -3,14 +3,14 @@ import { Navbar, Container, Nav,NavDropdown,FormControl,Button} from 'react-boot
 
 export default function Form({setInputText,setCarnets,carnets,inputText}){
     const inputTextH = (e) =>{
-        console.log()
+        console.log(e.target.value)
         setInputText(e.target.value)
     }
     const submitCarnetH=(e)=>{
         e.preventDefault()
-        setCarnets([...carnets,{text: inputText,completed:false}])
+        setCarnets([...carnets,{text: inputText,completed:false, id:Date.now()}])
 
-        setInputText('')
+        setInputText("")
     }
     return( 
         <form>

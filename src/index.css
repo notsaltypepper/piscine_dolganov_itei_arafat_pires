@@ -15,10 +15,10 @@ header {
 
 header,
 form {
-  min-height: 20vh;
+ 
   display: flex;
   justify-content: center;
-  align-items: center;
+  
 }
 form input,
 form button {
