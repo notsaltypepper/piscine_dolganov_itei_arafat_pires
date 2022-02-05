@@ -1,13 +1,7 @@
 import { Link } from 'react-router-dom'
-import {
-  Accordion,
-  Tab,
-  Tabs,
-  Card,
-  Placeholder,
-  Button,
-  Table,
-} from 'react-bootstrap'
+import CarnetNoteList from './../Carnet-Note/CarnetNoteList'
+// import { carnets } from 'src/App.js'
+import { Accordion, Button } from 'react-bootstrap'
 
 export default function AcceuilPage() {
   return (
@@ -22,19 +16,7 @@ export default function AcceuilPage() {
       <Accordion.Item eventKey="1">
         <Accordion.Header>Carnets de notes</Accordion.Header>
         <Accordion.Body>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary" as={Link} to={'/Carnet-Note.jsx/'}>
-                Go somewhere
-              </Button>
-            </Card.Body>
-          </Card>
+          {/* <CarnetNoteList carnets={carnets} /> */}
           <Button variant="primary" as={Link} to={'/Carnet-Note.jsx/'}>
             Voir tous les carnets
           </Button>

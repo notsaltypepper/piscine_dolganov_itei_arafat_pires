@@ -1,18 +1,6 @@
-
-import React,{useState} from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import AcceuilPage from './Components/AcceuilPage/AcceuilPage';
-
-import NoteAddPage from './Components/NoteAddPage/NoteAddPage';
-import NotesPage from './Components/NotesPage/NotesPage';
-import ModificationPage from './Components/ModificationPage/ModificationPage';
-import PreviNote from './Components/PreviNote/PreviNote';
+import NotesPage from './Components/NotesPage/NotesPage'
+import ModificationPage from './Components/ModificationPage/ModificationPage'
+import PreviNote from './Components/PreviNote/PreviNote'
 
 import * as React from 'react'
 import ReactDOM from 'react-dom'
@@ -24,7 +12,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AcceuilPage from './Components/AcceuilPage/AcceuilPage'
 import NoteAddPage from './Components/NoteAddPage/NoteAddPage'
-
 
 ReactDOM.render(
   <React.StrictMode>
@@ -42,12 +29,6 @@ ReactDOM.render(
           <Route path="/NotesPage/:id" element={<NotesPage />} />
           <Route path="/ModificationPage/:id" element={<ModificationPage />} />
           <Route path="/PreviNote/:id" element={<PreviNote />} />
-          
-          
-          
-          
-     
-
         </Routes>
       </Router>
     </main>
