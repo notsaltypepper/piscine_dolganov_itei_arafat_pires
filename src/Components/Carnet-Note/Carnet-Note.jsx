@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { NotesProvider } from './../../Provider/notesProvider';
 
+//PAGE QUI AFFICHE LA LISTE DES CARNETS
 
 export default function CarnetNote(){
     return(

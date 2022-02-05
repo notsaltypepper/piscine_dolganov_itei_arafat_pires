@@ -9,13 +9,15 @@ import {
 } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import { NotesProvider } from './../Provider/notesProvider'
+// DE BASE MON TABLEAU EST VIDE ET DONC MES STATES AUSSI ...
 export default function NoteAddPage() {
   const [noteAdd, setNoteAdd] = useState({
     id: '',
     titre: '',
     description: '',
   })
-
+//ICI LA CLASSE PROVIDER VA NOUS PERMETTRE DE POUVOIR ADD, UPDATE, OU DELETE DES ELEMENT(CAR TTE C FONCTIONS LA SONT DEJA DECLARER 
+// ..DANS LE PROVIDER... IL RESTE PLUS QU QU A LES UTILISER ICI)
   const notesProvider = new NotesProvider()
   const navigate = useNavigate()
 
@@ -24,7 +26,7 @@ export default function NoteAddPage() {
     notesProvider.add(noteAdd)
     navigate('/App')
   }
-
+//DONT FORGET QUE LE SetState PERMET DE CHANGER L ETAT D UN STATE 
   return (
     <div>
       <header>Veuillez Saisir Vos Notes...</header>

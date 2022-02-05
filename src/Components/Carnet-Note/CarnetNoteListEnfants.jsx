@@ -4,7 +4,9 @@ import NotesPage from '../NotesPage/NotesPage';
 
 import { Navbar, Container, Nav,NavDropdown,FormControl,Button,Card} from 'react-bootstrap';
 
-//+ card.id
+
+// JE RECUPERE LES PROPS , ILS SONT MTN EN PARAM DANS MA FONCTION , 
+//JE PEUX MTN LES UTILISER , LA OU' JE VEUX 
 
 export default function CarnetNoteListEnfant({card,id}){
     return(

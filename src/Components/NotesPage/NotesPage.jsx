@@ -3,13 +3,20 @@ import { Button,Form,FormControl,FormLabel,FormGroup,Select,Col,Container,Table,
 import { useState,useEffect} from 'react';
 import { NotesProvider } from './../Provider/notesProvider';
 
-export default function NotesPage(){
+export default function NotesPage(props){
+  
   const [notes, setNotes] = useState([])
+  const [notesFilter,setNotesFilter]=useState([])
+  
+  const search =props.search
+  //ICI aussi LA CLASSE PROVIDER VA NOUS PERMETTRE DE POUVOIR ADD, UPDATE, OU DELETE DES ELEMENT(CAR TTE C FONCTIONS LA SONT DEJA DECLARER 
+// ..DANS LE PROVIDER... IL RESTE PLUS QU QU A LES UTILISER ICI)
   const notesProvider = new NotesProvider()
-
   useEffect(() => {
     let datas = notesProvider.getNotes()
+    
     setNotes(datas)
+      
   }, [])
 
   function remove(note) {
@@ -22,7 +29,22 @@ export default function NotesPage(){
       setNotes(datas)
     }
   }
-  
+ 
+ /*useEffect(() => {
+    setNotesFilter(notes)
+    if (search.length > 0) {
+      let lowerSearch = search.toLowerCase()
+      let res = notes.filter(item => {
+        let lowerItem = item.toLowerCase()
+        if (lowerItem.indexOf(lowerSearch) > -1) return item
+        return null
+      })
+      setNotesFilter(res)
+    }
+  }, [search, notes])*/
+
+  /*{notes. filter((note)=>{return note.text.toLowerCase().includes(search)})}*/
+
 
   let displaynotes = notes.map((note, indice) => {
     return (
@@ -45,6 +67,7 @@ export default function NotesPage(){
       </tr>
     )
   })
+  
   return (
    
     <>
@@ -82,5 +105,6 @@ export default function NotesPage(){
         </Row>
       </Container>
     </>
+
   )
 }

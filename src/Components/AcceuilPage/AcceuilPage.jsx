@@ -17,7 +17,7 @@ export default function AcceuilPage() {
         <Accordion.Header>Carnets de notes</Accordion.Header>
         <Accordion.Body>
           {/* <CarnetNoteList carnets={carnets} /> */}
-          <Button variant="primary" as={Link} to={'/Carnet-Note.jsx/'}>
+          <Button variant="primary" as={Link} to={'/App/'}>
             Voir tous les carnets
           </Button>
         </Accordion.Body>
