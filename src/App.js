@@ -4,7 +4,7 @@ import Form from "./Components/Carnet-Note/Formulaire";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Button, Navbar } from "react-bootstrap";
 import AppNavbar from "./Components/App-Navbar/App-Navbar";
-import Favoris from "./Components/Carnet-Note/Favoris";
+import Favoris from "./Components/Favoris/Favoris";
 import { NotesProvider } from "./Components/Provider/notesProvider";
 import NoteAddPage from "./Components/NoteAddPage/NoteAddPage";
 //CETTE FONCTION VA RETOUNER TOUTES LES INFORMATION DES CARNETS, on pourra donc Ajouter un carnet ou le Visualiser

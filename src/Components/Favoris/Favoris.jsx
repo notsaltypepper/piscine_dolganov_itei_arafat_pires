@@ -2,7 +2,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CarnetFavProvider } from '../Provider/carnetsProvider'
-import {CarnetNoteListEnfants} from './CarnetNoteListEnfants'
+import {CarnetNoteListEnfants} from '../Carnet-Note/CarnetNoteListEnfants'
 import { Navbar, Nav,NavDropdown,FormControl,Card} from 'react-bootstrap';
 import App from '../../App'
 
@@ -25,7 +25,6 @@ export default function Favoris({card,id,key,carnets}){
           if (rep) {
             carnetFavsProvider.remove(carnetFav)
             let datas = carnetFavsProvider.getcarnetFav()
-            console.log(datas);
             setCarnetFav(datas)
           }
         }
@@ -44,7 +43,7 @@ export default function Favoris({card,id,key,carnets}){
                     <Card.Text>
                       
                     </Card.Text>
-                    <Button as={Link} to={'/NotesPage/:id'+ id }className="visualiser" variant="primary">Visualiser le Carnet</Button>
+                    <Button as={Link} to={'/Favoris/:id'+ id }className="visualiser" variant="primary">Visualiser le Carnet</Button>
                     <Button md= {12} variant="danger" onClick={() => remove(carnet)}>
                       Supprimer des Favoris
                     </Button>

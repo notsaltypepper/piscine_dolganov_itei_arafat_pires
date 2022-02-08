@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AcceuilPage from "./Components/AcceuilPage/AcceuilPage";
 import NoteAddPage from "./Components/NoteAddPage/NoteAddPage";
 
-import Favoris from "./Components/Carnet-Note/Favoris";
+import Favoris from "./Components/Favoris/Favoris";
 import ConfigurationPage from "./Components/ConfigurationPage/ConfigurationPage";
 
 ReactDOM.render(
