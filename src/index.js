@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AcceuilPage from "./Components/AcceuilPage/AcceuilPage";
 import NoteAddPage from "./Components/NoteAddPage/NoteAddPage";
 
-import Favoris from "./Components/Carnet-Note/Favoris";
+import Favoris from "./Components/Favoris/Favoris";
 import ConfigurationPage from "./Components/ConfigurationPage/ConfigurationPage";
 
 ReactDOM.render(
@@ -28,7 +28,6 @@ ReactDOM.render(
         <Routes>
           <Route path="/Acceuil" element={<AcceuilPage />} />
           <Route path="/App" element={<App />} />
-
           <Route path="/NoteAddPage" element={<NoteAddPage />} />
           <Route path="/Favoris" element={<Favoris />} />
           <Route path="/NotesPage/:id" element={<NotesPage />} />

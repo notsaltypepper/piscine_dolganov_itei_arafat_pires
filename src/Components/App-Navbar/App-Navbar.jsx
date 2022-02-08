@@ -20,22 +20,9 @@ export default function AppNavbar() {
         navbarScroll
       >
        
-        <Nav.Link href="#action1" as={Link} to="/App" color="white">Mes Carnets</Nav.Link>
         <Nav.Link href="#action2" as={Link} to="/Acceuil">Acceuil</Nav.Link>
+        <Nav.Link href="#action1" as={Link} to="/App" color="white">Mes Carnets</Nav.Link>
         <Nav.Link href="#action2"  as={Link} to="/Favoris" >Mes Favoris</Nav.Link>
-       
-  
-
-        <NavDropdown title="" id="navbarScrollingDropdown favoris">
-          <NavDropdown.Item href="#action3"></NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action4"></NavDropdown.Item>
-
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">
-            
-          </NavDropdown.Item>
-        </NavDropdown>
         <Nav.Link href="#action2">Statistiques</Nav.Link>
         <Nav.Link href="#action2" as={Link} to="/ConfigurationPage/:id">Configuration</Nav.Link>
       </Nav>

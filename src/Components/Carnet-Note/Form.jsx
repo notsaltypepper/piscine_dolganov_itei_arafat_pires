@@ -22,8 +22,8 @@ export default function Form({setInputText,setCarnets,carnets,inputText}){
         <form>
              <InputGroup className="mb-3">
                     <FormControl
-                    placeholder="Recipient's username"
-                    value={inputText} type="text" className="carnet-input" required onChange={inputTextH}
+                    placeholder="Ajouter un carnet"
+                    value={inputText} type="text" variant="Danger" className="carnet-input" required onChange={inputTextH}
                    
                     />
                     <Button className="carnet-button" variant="outline-secondary" id="button-addon2" type="submit"  onClick={submitCarnetH}>
