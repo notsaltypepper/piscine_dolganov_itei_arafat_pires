@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom'
 import CarnetNoteList from './../Carnet-Note/CarnetNoteList'
 // import { carnets } from 'src/App.js'
-import { Accordion, Button } from 'react-bootstrap'
+import { Accordion, Button,Container,Badge } from 'react-bootstrap'
 
 export default function AcceuilPage() {
   return (
-    <Accordion defaultActiveKey="0">
+    <Container>
+
+    <Accordion defaultActiveKey="0 " bg="dark" variant="dark">
       <Accordion.Item eventKey="0">
         <Accordion.Header>Statistiques</Accordion.Header>
-        <Accordion.Body>
-          - Total carnets de notes: <br></br>- Total notes: <br></br>- Notes par
-          catégories:
+        <Accordion.Body >
+          - Total carnets de notes: <Badge pill bg="dark">
+                Dark
+              </Badge><br></br>- Total notes:<Badge pill bg="warning">
+                Dark
+              </Badge> <br></br>- Notes par
+          catégories:<Badge pill bg="success">
+                Dark
+              </Badge>
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
@@ -23,5 +31,8 @@ export default function AcceuilPage() {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
+    </Container>
+
+    
   )
 }

@@ -1,59 +1,59 @@
-export class carnetsProvider {
-  carnets
+export class CarnetFavProvider {
+  carnetFav
   constructor() {
-    this.carnets = this.getCarnets()
+    this.carnetFav = this.getcarnetFav()
   }
 
   save() {
-    localStorage.setItem('btc-spa-carnets', JSON.stringify(this.carnets))
+    localStorage.setItem('stockage-carnetFav', JSON.stringify(this.carnetFav))
   }
 
   load() {
-    let datas = localStorage.getItem('btc-spa-carnets')
+    let datas = localStorage.getItem('stockage-carnetFav')
     if (datas === null) datas = '[]'
     datas = JSON.parse(datas)
-    this.carnets = datas
+    this.carnetFav = datas
   }
 
-  getCarnets() {
+  getcarnetFav() {
     this.load()
-    return this.carnets
+    return this.carnetFav
   }
 
   add(carnet) {
     const id = Date.now()
     let tmp = { ...carnet }
     tmp.id = id
-    this.carnets.push(tmp)
+    this.carnetFav.push(tmp)
     this.save()
   }
 
   update(carnet) {
     const { id } = carnet
     let indice = -1
-    for (let i = 0; i < this.carnets.length; i++)
-      if (this.carnets[i].id === Number(id)) indice = i
+    for (let i = 0; i < this.carnetFav.length; i++)
+      if (this.carnetFav[i].id === Number(id)) indice = i
 
     if (indice === -1) return false
-    this.carnets[indice] = carnet
+    this.carnetFav[indice] = carnet
     this.save()
     return true
   }
 
   remove(carnet) {
     let indice = -1
-    for (let i = 0; i < this.carnets.length; i++)
-      if (this.carnets[i].id === Number(carnet.id)) indice = i
+    for (let i = 0; i < this.carnetFav.length; i++)
+      if (this.carnetFav[i].id === Number(carnet.id)) indice = i
 
     if (indice === -1) return false
 
-    this.carnets.splice(indice, 1)
+    this.carnetFav.splice(indice, 1)
     this.save()
     return true
   }
 
   getNoteById(id) {
-    let res = this.carnets.filter(carnet => carnet.id === Number(id))
+    let res = this.carnetFav.filter(carnet => carnet.id === Number(id))
     return res.length === 0 ? false : res[0]
   }
 }

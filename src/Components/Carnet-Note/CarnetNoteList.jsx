@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Container, Nav,NavDropdown,FormControl,Button,Card} from 'react-bootstrap';
 import CarnetNoteListEnfant from './CarnetNoteListEnfants'
-
+import Favoris from './Favoris'
 //FONCTION QUI VA NOUS PERMETTRE DE PASSER DES INFO EN MODE PROPS 
 
 
@@ -14,11 +14,16 @@ export default function CarnetNoteList({carnets}){
            <ul className="carnet-list">
                {carnets.map((carnet) =>(
                    <CarnetNoteListEnfant key={carnet.id} card={carnet.text} id={carnet.id} />
-               ))}
-
+                   ))}
+               
+               {carnets.map((carnet) =>(
+                   <Favoris key={carnet.id} card={carnet.text} id={carnet.id} />
+                   ))}
             
            </ul>
             
         </div>
     )
 }
+
+//<Favoris key={carnets.id} card={carnets.text} id={carnets.id} />

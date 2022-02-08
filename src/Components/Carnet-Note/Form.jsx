@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Container, Nav,NavDropdown,FormControl,Button} from 'react-bootstrap';
+import { Navbar, Container, Nav,NavDropdown,FormControl,Button,InputGroup} from 'react-bootstrap';
+
 //JE RECUPERER LES PROPS ICI 
 
 export default function Form({setInputText,setCarnets,carnets,inputText}){
@@ -17,14 +18,23 @@ export default function Form({setInputText,setCarnets,carnets,inputText}){
     }
     return( 
         <form>
-            <input value={inputText} type="text" className="carnet-input" required onChange={inputTextH} />
-            <button onClick={submitCarnetH} className="carnet-button" type="submit"></button>
-            <i className="fas fa-plus-square"></i>
-            <div className="select">
-                <select name="carnets" className="filter-carnet">
-                    <option value="all">Tout</option>
-                    <option value="uncompleted">Incomplet</option>
-                    <option value="completed">Complet</option>
+             <InputGroup className="mb-3">
+                    <FormControl
+                    placeholder="Recipient's username"
+                    value={inputText} type="text" className="carnet-input" required onChange={inputTextH}
+                   
+                    />
+                    <Button className="carnet-button" variant="outline-secondary" id="button-addon2" type="submit"  onClick={submitCarnetH}>
+                    Button
+                    </Button>
+                </InputGroup>
+            
+            
+            <div className="categorie">
+                <select name="carnets" className="filter-categorie">
+                    <option value="all">Maison</option>
+                    <option value="uncompleted">Education</option>
+                    <option value="completed">Travail</option>
 
                 </select>
             </div>

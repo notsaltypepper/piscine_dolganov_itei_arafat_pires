@@ -5,7 +5,7 @@ import { NotesProvider } from './../Provider/notesProvider'
 
 export default function ModificationPage(){
      const [note, setNote] = useState({})
-      const [noteModif, setNoteModif] = useState({
+     const [noteModif, setNoteModif] = useState({
     id: '',
     titre: '',
     description: '',
@@ -27,10 +27,10 @@ export default function ModificationPage(){
     }
   }, [id, navigate])
 
-  function Modif(e) {
+  function update(e) {
     e.preventDefault()
     let res = notesProvider.update(noteModif)
-    if (res) navigate('/NotesPage')
+    if (res) navigate('/PreviNote/:id')
     else alert("Erreur lors de l'enregistrement")
   }
 
@@ -39,8 +39,21 @@ export default function ModificationPage(){
   }
     return(
        <div>
-            <header>Veuillez Saisir Vos Notes...</header><br />
-            <Form onSubmit={e => Modif(e)}>
+         <Container>
+           <Row>
+             <Col>
+             <h1>Modifier une Note...</h1>
+             <Button variant="primary" size="lg" active as={Link} to="/PreviNote/:id">
+        Retour
+    </Button>
+             <hr />
+             </Col>
+           </Row>
+
+
+           <Row>
+             <Col md={3}>
+               <Form onSubmit={e => update(e)}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Note-Titre</Form.Label>
                         <Form.Control
@@ -66,7 +79,7 @@ export default function ModificationPage(){
                     <br />
                      
                  
-                    <Form.Group className="mb-6" controlId="exampleForm.ControlTextarea1">
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" value={noteModif.description}
                                 onChange={e => {
@@ -78,12 +91,15 @@ export default function ModificationPage(){
                                 rows={2} placeholder="description"/>
                         <Button variant="light">Mode-Web</Button>
                  </Form.Group>
-                  <Button variant="dark" type="submit" as={Link} to={'/PreviNote/' + note.id}>Sauvegarder</Button>
-                  <Button variant="secondary"  type="reset" onClick={reset}>Annuler</Button>
             </Form>
-            <Button variant="primary" size="lg" active as={Link} to="/App">
-        Retour
-    </Button>
+                  <Button variant="dark" type="submit" as={Link} to={'/PreviNote/:id' + note.id}>Sauvegarder</Button>
+                  <Button variant="secondary"  type="reset" onClick={reset}>Annuler</Button>
+           </Col>
+            
+           </Row>
+         </Container>
+            
+            
       </div>
 
 
