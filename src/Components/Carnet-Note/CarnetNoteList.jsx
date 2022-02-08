@@ -10,7 +10,7 @@ import {
 } from 'react-bootstrap'
 import AcceuilPage from '../AcceuilPage/AcceuilPage'
 import CarnetNoteListEnfant from './CarnetNoteListEnfants'
-import Favoris from './Favoris'
+import Favoris from '../Favoris/Favoris'
 //FONCTION QUI VA NOUS PERMETTRE DE PASSER DES INFO EN MODE PROPS
 
 //(pros: permet d utiliser un bout de code d un component a un autre

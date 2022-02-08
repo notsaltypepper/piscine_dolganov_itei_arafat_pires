@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 
 import CarnetNoteList from './Components/Carnet-Note/CarnetNoteList'
@@ -17,17 +18,19 @@ export default function App({id, carnet_counter, notes_counter}) {
  const notesProvider = new NotesProvider()
 
 
+
   //LOCALSTORAGE NOUS PERMET DE STOCKER LES INFORMATIONS DANS Notre stockage-interne (locale)
   //GRACE A CELA , LES INFORMATION(CARNET ) SONT TJR PRESENT LORSQUE L ON RAFRAICHIT LA PAGE
 
   const getLocalStorage = () => {
-    let carnets = localStorage.getItem('carnets')
+    let carnets = localStorage.getItem("carnets");
     if (carnets) {
-      return (carnets = JSON.parse(localStorage.getItem('carnets')))
+      return (carnets = JSON.parse(localStorage.getItem("carnets")));
     } else {
-      return []
+      return [];
     }
-  }
+  };
+
 
   const [inputText, setInputText] = useState('')
   const [carnets, setCarnets] = useState(getLocalStorage())
@@ -37,12 +40,11 @@ export default function App({id, carnet_counter, notes_counter}) {
   }, [carnets])
   var carnet_counter = carnets.length
   console.log(carnet_counter)
+
   //JE PASSE ENCORE UNE FOIS EN MODE (PROPS) LES DIFFERENT STATES QUI ETE DECLARE ICI AU COMPONENTS CONSERNER AFIN DE LES UTILISER LA BAS ...
   return (
     <Container>
       <Row>
-
-          
         <Col>
           <h1>Mes Carnets</h1>
           <hr />
@@ -64,8 +66,7 @@ export default function App({id, carnet_counter, notes_counter}) {
           </div>
         </Col>
       </Row>
-
     </Container>
-  )
+  );
 }
 //<Favoris carnets={carnets} />

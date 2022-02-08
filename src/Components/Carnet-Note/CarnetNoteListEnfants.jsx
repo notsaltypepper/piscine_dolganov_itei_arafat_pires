@@ -9,7 +9,7 @@ import { useState,useEffect } from "react";
 
 import { Navbar, Container, Nav,NavDropdown,FormControl,Button,Card} from 'react-bootstrap';
 import AppNavbar from "../App-Navbar/App-Navbar";
-import Favoris from './Favoris'
+import Favoris from '../Favoris/Favoris'
 import { CarnetFavProvider } from './../Provider/carnetsProvider'
 
 // JE RECUPERE LES PROPS , ILS SONT MTN EN PARAM DANS MA FONCTION , 
