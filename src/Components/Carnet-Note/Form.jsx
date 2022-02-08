@@ -13,7 +13,7 @@ export default function Form({setInputText,setCarnets,carnets,inputText}){
     //JE STOCKE L INFRO DANS LA VARIABLE SUBMIT... ET L APL AU CLICK DU BTN 
     const submitCarnetH=(e)=>{
         e.preventDefault()
-        setCarnets([...carnets,{text: inputText,completed:false, id:Date.now()}])
+        setCarnets([...carnets,{text: inputText, id:Date.now()}])
         setInputText("")
     }
    

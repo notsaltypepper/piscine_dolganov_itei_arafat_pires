@@ -52,7 +52,7 @@ export class CarnetFavProvider {
     return true
   }
 
-  getNoteById(id) {
+  getCarnetFavById(id) {
     let res = this.carnetFav.filter(carnet => carnet.id === Number(id))
     return res.length === 0 ? false : res[0]
   }

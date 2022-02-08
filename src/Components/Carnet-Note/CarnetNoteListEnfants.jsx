@@ -26,7 +26,7 @@ export default function CarnetNoteListEnfant({card,id}){
     const carnetsProvider = new CarnetFavProvider()
     const navigate = useNavigate()
 
-   function add(e) {
+   function add2(e) {
       e.preventDefault()
       let rep = window.confirm(
     `Etes-vous sur de vouloir ajouter ce carnet aux favoris?`
@@ -53,7 +53,7 @@ export default function CarnetNoteListEnfant({card,id}){
                     Mon Premier Carnet
                     </Card.Text>
                     <Button as={Link} to={'/NotesPage/'+ id }className="visualiser" variant="primary">Visualiser le Carnet</Button>
-                    <IconButton  style={{ color: "red", cursor: "pointer" }} onClick={e => add(e)}  aria-label="delete" color="primary">
+                    <IconButton  style={{ color: "red", cursor: "pointer" }} onClick={e => add2(e)} as={Link} to='/Favoris' aria-label="delete" color="primary">
                         <FavoriteBorderIcon ></FavoriteBorderIcon>
                     </IconButton>
                 </Card.Body>

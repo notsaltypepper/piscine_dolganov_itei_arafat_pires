@@ -34,14 +34,15 @@ export default function Favoris({card,id,key,carnets}){
 
   let displayFav = carnetFav.map((carnet, indice) => {
     return (
-      <tr key={'notes-' + carnet.id}>
+
+      <tr key={'fav-' + id}>
         
         {indice + 1}<Card className="carnet-item" style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body className="carnet-item">
                     <Card.Title value={carnet.text}>{carnet.card}</Card.Title>
                     <Card.Text>
-                    
+                      
                     </Card.Text>
                     <Button as={Link} to={'/NotesPage/:id'+ id }className="visualiser" variant="primary">Visualiser le Carnet</Button>
                     <Button md= {12} variant="danger" onClick={() => remove(carnet)}>
@@ -73,11 +74,9 @@ export default function Favoris({card,id,key,carnets}){
                 Retour
                 </Button>
             
+              {displayFav}
               </Col>
             </Row>
-          
-
-              {displayFav}
           </Container>
          
        </div>

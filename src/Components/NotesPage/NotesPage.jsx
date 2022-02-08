@@ -2,19 +2,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button,ListGroup,Form,FormControl,FormLabel,FormGroup,Select,Col,Container,Table,Row} from 'react-bootstrap';
 import { useState,useEffect} from 'react';
 import { NotesProvider } from './../Provider/notesProvider';
+import showdown from "showdown";
 
-export default function NotesPage(props){
+export default function NotesPage(){
   const [notes, setNotes] = useState([])
   const [notesFilter,setNotesFilter]=useState([])
    const [search, setSearch] = useState('')
   //const not={notes.filter((note)=>{return note.text.toLowerCase().includes(search)})}
   
+  const converter = new showdown.Converter();
+    let Desc = converter.makeHtml(notes.description);
   
-
-  
-  //ICI aussi LA CLASSE PROVIDER VA NOUS PERMETTRE DE POUVOIR ADD, UPDATE, OU DELETE DES ELEMENT(CAR TTE C FONCTIONS LA SONT DEJA DECLARER 
-// ..DANS LE PROVIDER... IL RESTE PLUS QU QU A LES UTILISER ICI)
   const notesProvider = new NotesProvider()
+  //ICI aussi LA CLASSE PROVIDER VA NOUS PERMETTRE DE POUVOIR ADD, UPDATE, OU DELETE DES ELEMENT(CAR TTE C FONCTIONS LA SONT DEJA DECLARER 
+  // ..DANS LE PROVIDER... IL RESTE PLUS QU QU A LES UTILISER ICI)
+  
   useEffect(() => {
     let datas = notesProvider.getNotes()
     
@@ -33,112 +35,6 @@ export default function NotesPage(props){
     }
   }
  
-  
- /* {[notes]. filter((note)=>{
-   if(search == ""){
-     return note
-   }else if ( note.titre.toLowerCase().includes(search.toLowerCase())){
-     return note
-   }
- }).map((note,key) =>{
-   return (
-     <tr key={'notes-' + note.id}>
-            <td>{indice + 1}</td>
-            <td>{note.titre}</td>
-            <td>{note.description}</td>
-             <td>
-          
-          <Button as={Link} to={'/PreviNote/' + note.id} variant="success">
-            Observer
-          </Button>
-        </td>
-        <td>
-          <Button variant="danger" onClick={() => remove(note)}>
-            Supprimer
-          </Button>
-        </td>
-          </tr>
-    
-   
-
-
-   )
- })
- 
- 
- 
- note.includes(search)).map(notesFilter=>( 
-    <li>{notesFilter}</li>
-  ))}*/
-  
-  /*<div>
-    {[notes].filter((notes)=>{if (search == ""){return notes
-    } else if(notes.titre.toLowerCase().includes(search.toLowerCase())){return notes}
-    }).map((notes,key)=>(
-      return(
-        <div key={key}></div>
-        
-        <li> {notes.titre}</li>
-
-      )
-    ))}
-  </div>*/
-  
-  
-  /*let displaynotes = notes.map((note, indice) => {
-    return (
-    
-         <tr key={'notes-' + note.id}>
-            <td>{indice + 1}</td>
-            <td>{note.titre}</td>
-            <td>{note.description}</td>
-             <td>
-          
-          <Button as={Link} to={'/PreviNote/' + note.id} variant="success">
-            Observer
-          </Button>
-        </td>
-        <td>
-          <Button variant="danger" onClick={() => remove(note)}>
-            Supprimer
-          </Button>
-        </td>
-          </tr>
-    
-   
-
-    )
-  })*/
-     /* <tr key={'notes-' + note.id}>
-        <td>{indice + 1}</td>
-        <td>{note.titre}</td>
-        <td>{note.description}</td>
-        
-        <td>
-          
-          <Button as={Link} to={'/PreviNote/' + note.id} variant="success">
-            Observer
-          </Button>
-        </td>
-        <td>
-          <Button variant="danger" onClick={() => remove(note)}>
-            Supprimer
-          </Button>
-        </td>
-      </tr>*/
-     /* useEffect(() => {
-        setNotesFilter(notes)
-        if ([search].length > 0) {
-          let lowerSearch=search.toLowerCase()
-          console.log(search)
-       let res = notes.filter((item) => {
-         let lowerItem = item.toLowerCase && item.toLowerCase()
-         if (lowerItem.indexOf(lowerSearch) > -1) return item
-         return null
-       })
-       setNotesFilter(res)
-     }
-   }, [search, notes])*/
   
   return (
    
@@ -175,6 +71,7 @@ export default function NotesPage(props){
                   <th>Supprimer</th>
                 </tr>
               </thead>
+              
               <tbody>{notes.filter(val =>{
                 if(search === ""){
 
@@ -187,27 +84,33 @@ export default function NotesPage(props){
                 ){
                   return val
                 }
-
+                
               }).map((note, indice) => (
-
-    
-                <tr key={'notes-' + note.id}>
+                
+                
+                <tr  key={'notes-' + note.id }>
                     <td>{indice + 1}</td>
                     <td>{note.titre}</td>
-                    <td>{note.description}</td>
+                    <td id="output-notespage" dangerouslySetInnerHTML={{ __html: converter.makeHtml(note.description) }}></td>
+                    
                     <td>
+                      
+                    
                   
                   <Button as={Link} to={'/PreviNote/' + note.id} variant="success">
                     Observer
+                      
                   </Button>
                 </td>
                 <td>
                   <Button variant="danger" onClick={() => remove(note)}>
                     Supprimer
                   </Button>
+                  
                 </td>
                   </tr>))}
           </tbody>
+                
             </Table>
           </Col>
         </Row>

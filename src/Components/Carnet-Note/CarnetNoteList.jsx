@@ -7,7 +7,7 @@ import Favoris from './Favoris'
 
 //(pros: permet d utiliser un bout de code d un component a un autre 
 //,(D ACCEDER AUX INFO D UN COMPOENENT))
-export default function CarnetNoteList({carnets}){
+export default function CarnetNoteList({carnets,id}){
     return(
         //JE PASSE 
         <div className="carnet-container">
