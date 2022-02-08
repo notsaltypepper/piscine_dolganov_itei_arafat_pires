@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav,NavDropdown,FormControl,Button,InputGroup} from 'react-bootstrap';
+import App from './../../App';
 
 //JE RECUPERER LES PROPS ICI 
 
@@ -13,9 +14,10 @@ export default function Form({setInputText,setCarnets,carnets,inputText}){
     const submitCarnetH=(e)=>{
         e.preventDefault()
         setCarnets([...carnets,{text: inputText,completed:false, id:Date.now()}])
-
         setInputText("")
     }
+   
+   // <App idcarnet={id}/>
     return( 
         <form>
              <InputGroup className="mb-3">
@@ -28,7 +30,7 @@ export default function Form({setInputText,setCarnets,carnets,inputText}){
                     Button
                     </Button>
                 </InputGroup>
-            
+           
             
             <div className="categorie">
                 <select name="carnets" className="filter-categorie">

@@ -4,33 +4,33 @@ import { useState, useEffect } from 'react'
 import { CarnetFavProvider } from './../Provider/carnetsProvider'
 import {CarnetNoteListEnfants} from './CarnetNoteListEnfants'
 import { Navbar, Nav,NavDropdown,FormControl,Card} from 'react-bootstrap';
-
+import App from './../../App'
 
 export default function Favoris({card,id,key,carnets}){
      const [carnetFav, setCarnetFav] = useState([])
      const [carnetFavModif, setCarnetFavModif] = useState([])
-  
-  const carnetFavsProvider = new CarnetFavProvider()
-  
-  useEffect(() => {
-    let datas = carnetFavsProvider.getcarnetFav()
-    
-    setCarnetFav(datas)
+     const carnetFavsProvider = new CarnetFavProvider()
+     
+     useEffect(() => {
+       let datas = carnetFavsProvider.getcarnetFav()
+       
+       setCarnetFav(datas)
+       
+      }, [])
       
-  }, [])
-
-  function remove(carnetFav) {
-    let rep = window.confirm(
-      `Etes-vous sur de vouloir supprimer le carnet?  ${carnetFav.card}`
-    )
-    if (rep) {
-      carnetFavsProvider.remove(carnetFav)
-      let datas = carnetFavsProvider.getcarnetFav()
-      setCarnetFav(datas)
-    }
-  }
-
-
+      function remove(carnetFav) {
+        let rep = window.confirm(
+          `Etes-vous sur de vouloir supprimer le carnet?  ${carnetFav.card}`
+          )
+          if (rep) {
+            carnetFavsProvider.remove(carnetFav)
+            let datas = carnetFavsProvider.getcarnetFav()
+            setCarnetFav(datas)
+          }
+        }
+        
+        
+        <App idcarnet={id}/>
 
   let displayFav = carnetFav.map((carnet, indice) => {
     return (

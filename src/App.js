@@ -10,7 +10,7 @@ import Favoris from './Components/Carnet-Note/Favoris'
 
 //CETTE FONCTION VA RETOUNER TOUTES LES INFORMATION DES CARNETS, on pourra donc Ajouter un carnet ou le Visualiser
 
-export default function App() {
+export default function App({id}) {
 
   //LOCALSTORAGE NOUS PERMET DE STOCKER LES INFORMATIONS DANS Notre stockage-interne (locale)
   //GRACE A CELA , LES INFORMATION(CARNET ) SONT TJR PRESENT LORSQUE L ON RAFRAICHIT LA PAGE
@@ -52,7 +52,7 @@ export default function App() {
         />
             <div className='mb-9'>
 
-        <CarnetNoteList carnets={carnets} />
+        <CarnetNoteList carnets={carnets} id_carnet={id} />
             </div>
      
          
