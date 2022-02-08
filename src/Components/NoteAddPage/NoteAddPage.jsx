@@ -8,7 +8,10 @@ import {
   Select,
 } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
-import { NotesProvider } from './../Provider/notesProvider'
+import { NotesProvider } from './../Provider/notesProvider';
+import {Converter,converter} from 'showdown';
+import showdown from 'showdown';
+
 // DE BASE MON TABLEAU EST VIDE ET DONC MES STATES AUSSI ...
 export default function NoteAddPage() {
   const [noteAdd, setNoteAdd] = useState({
@@ -16,6 +19,8 @@ export default function NoteAddPage() {
     titre: '',
     description: '',
   })
+  let[test,setTest] =useState('')
+ const converter = new showdown.Converter()
 //ICI LA CLASSE PROVIDER VA NOUS PERMETTRE DE POUVOIR ADD, UPDATE, OU DELETE DES ELEMENT(CAR TTE C FONCTIONS LA SONT DEJA DECLARER 
 // ..DANS LE PROVIDER... IL RESTE PLUS QU QU A LES UTILISER ICI)
   const notesProvider = new NotesProvider()
@@ -26,10 +31,17 @@ export default function NoteAddPage() {
     notesProvider.add(noteAdd)
     navigate('/App')
   }
+  function ShowdownWeb()
+  {
+    
+    test = converter.makeHtml(noteAdd.titre)
+  }
 //DONT FORGET QUE LE SetState PERMET DE CHANGER L ETAT D UN STATE 
   return (
     <div>
+      
       <header>Veuillez Saisir Vos Notes...</header>
+      
       <br />
       <Form onSubmit={e => add(e)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -44,6 +56,7 @@ export default function NoteAddPage() {
               setNoteAdd(tmp)
             }}
             required
+            
           />
           <select name="carnets" className="filter-note-categ">
             <option value="all">Cuisine</option>
@@ -53,9 +66,9 @@ export default function NoteAddPage() {
         </Form.Group>
         <br />
 
-        <Form.Group className="mb-6" controlId="exampleForm.ControlTextarea1">
+        <Form.Group className="mb-6" controlId="exampleForm.ControlTextarea1" id='titre-input'>
           <Form.Label>Description</Form.Label>
-          <Form.Control
+          <Form.Control 
             as="textarea"
             value={noteAdd.description}
             onChange={e => {
@@ -67,7 +80,11 @@ export default function NoteAddPage() {
             rows={2}
             placeholder="description"
           />
-          <Button variant="light">Mode-Web</Button>
+          <div>
+          <h4 id="titre-input" >{converter.makeHtml(noteAdd.titre)}</h4>
+
+          </div>
+          <Button variant="light" onClick={ShowdownWeb()}>Mode-Web</Button>
         </Form.Group>
         <Button variant="dark" type="submit">
           Ajouter

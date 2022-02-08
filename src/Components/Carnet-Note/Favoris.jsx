@@ -32,7 +32,7 @@ export default function Favoris({card,id,key,carnets}){
 
 
 
-  let displaynotes = carnetFav.map((carnet, indice) => {
+  let displayFav = carnetFav.map((carnet, indice) => {
     return (
       <tr key={'notes-' + carnet.id}>
         
@@ -41,7 +41,7 @@ export default function Favoris({card,id,key,carnets}){
                 <Card.Body className="carnet-item">
                     <Card.Title value={carnet.text}>{carnet.card}</Card.Title>
                     <Card.Text>
-                    Mon Premier Carnet
+                    
                     </Card.Text>
                     <Button as={Link} to={'/NotesPage/:id'+ id }className="visualiser" variant="primary">Visualiser le Carnet</Button>
                     <Button md= {12} variant="danger" onClick={() => remove(carnet)}>
@@ -50,9 +50,6 @@ export default function Favoris({card,id,key,carnets}){
                 </Card.Body>
             </Card>
        
-       
-        
-        
       </tr>
     )
   })
@@ -69,7 +66,7 @@ export default function Favoris({card,id,key,carnets}){
                 <div className='mb-12'></div>
             
 
-                <h1>Liste des  Favoris</h1><hr />
+                <h1>Liste des Favoris</h1><hr />
                 
                 
                 <Button variant="primary" size="lg" active as={Link} to="/App">
@@ -80,7 +77,7 @@ export default function Favoris({card,id,key,carnets}){
             </Row>
           
 
-              {displaynotes}
+              {displayFav}
           </Container>
          
        </div>

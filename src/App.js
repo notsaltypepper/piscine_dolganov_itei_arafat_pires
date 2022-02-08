@@ -54,8 +54,8 @@ export default function App() {
 
         <CarnetNoteList carnets={carnets} />
             </div>
-        <AppNavbar carnets={carnets} />
-         <Favoris carnets={carnets} />
+     
+         
           </Col>
         </Row>
     </Container>
@@ -65,3 +65,4 @@ export default function App() {
   
   )
 }
+//<Favoris carnets={carnets} />
