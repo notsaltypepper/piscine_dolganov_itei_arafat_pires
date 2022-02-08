@@ -14,6 +14,8 @@ import Favoris from './Favoris'
 
 //(pros: permet d utiliser un bout de code d un component a un autre
 //,(D ACCEDER AUX INFO D UN COMPOENENT))
+
+
 export default function CarnetNoteList({ carnets, id }) {
   return (
     //JE PASSE
@@ -33,6 +35,6 @@ export default function CarnetNoteList({ carnets, id }) {
       </ul>
     </div>
   )
+
 }
 
-//<Favoris key={carnets.id} card={carnets.text} id={carnets.id} />

@@ -7,9 +7,15 @@ import { Container, Row, Col, Button, Navbar } from 'react-bootstrap'
 import AppNavbar from './Components/App-Navbar/App-Navbar'
 import Favoris from './Components/Carnet-Note/Favoris'
 
+import { NotesProvider } from './Components/Provider/notesProvider';
+import NoteAddPage from './Components/NoteAddPage/NoteAddPage'
+
 //CETTE FONCTION VA RETOUNER TOUTES LES INFORMATION DES CARNETS, on pourra donc Ajouter un carnet ou le Visualiser
 
-export default function App({ id }) {
+export default function App({id}) {
+ const notesProvider = new NotesProvider()
+
+
   //LOCALSTORAGE NOUS PERMET DE STOCKER LES INFORMATIONS DANS Notre stockage-interne (locale)
   //GRACE A CELA , LES INFORMATION(CARNET ) SONT TJR PRESENT LORSQUE L ON RAFRAICHIT LA PAGE
 
@@ -33,6 +39,8 @@ export default function App({ id }) {
   return (
     <Container>
       <Row>
+
+          
         <Col>
           <h1>Mes Carnets</h1>
           <hr />
@@ -52,6 +60,7 @@ export default function App({ id }) {
           </div>
         </Col>
       </Row>
+
     </Container>
   )
 }

@@ -13,7 +13,7 @@ import { Converter, converter } from "showdown";
 import showdown from "showdown";
 import { NoteAdd } from "@material-ui/icons";
 // DE BASE MON TABLEAU EST VIDE ET DONC MES STATES AUSSI ...
-export default function NoteAddPage() {
+export default function NoteAddPage({id}) {
   const [noteAdd, setNoteAdd] = useState({
     id: "",
     titre: "",
@@ -31,22 +31,38 @@ export default function NoteAddPage() {
     notesProvider.add(noteAdd);
     navigate("/App");
   }
+
+
+
   function ShowdownWeb() {
     test = converter.makeHtml(noteAdd.description);
   }
   <NoteAddPage DescNote={Desc} />;
+
   //DONT FORGET QUE LE SetState PERMET DE CHANGER L ETAT D UN STATE
   return (
     <div>
       <header>Veuillez Saisir Vos Notes...</header>
 
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <br />
+
+
+      <br />
+
       <Form onSubmit={(e) => add(e)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Note-Titre</Form.Label>
+          <Form.Label>
+            <strong>Note-Titre</strong>
+          </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter le Titre"
+            placeholder="Entrer le Titre"
             value={noteAdd.titre}
             onChange={(e) => {
               let tmp = { ...noteAdd };
@@ -68,7 +84,11 @@ export default function NoteAddPage() {
           controlId="exampleForm.ControlTextarea1"
           id="titre-input"
         >
-          <Form.Label>Description</Form.Label>
+
+          <Form.Label>
+            <strong>Description</strong>
+          </Form.Label>
+
           <Form.Control
             as="textarea"
             value={noteAdd.description}
@@ -81,7 +101,7 @@ export default function NoteAddPage() {
             rows={2}
             placeholder="description"
           />
-          <div>
+ <div>
             <p>Apercu</p>
             <h6 id="titre-output">{noteAdd.titre}</h6>
             <p id="note-output" dangerouslySetInnerHTML={{ __html: Desc }}></p>
@@ -89,7 +109,15 @@ export default function NoteAddPage() {
           <Button variant="light" onClick={ShowdownWeb()}>
             Mode-Web
           </Button>
+
         </Form.Group>
+         <div>
+          <p>
+            <strong>Apercu</strong>
+          </p>
+          <h6 id="titre-output">{noteAdd.titre}</h6>
+          <p id="note-output" dangerouslySetInnerHTML={{ __html: Desc }}></p>
+        </div>
         <Button variant="dark" type="submit">
           Ajouter
         </Button>
@@ -101,5 +129,5 @@ export default function NoteAddPage() {
         Retour
       </Button>
     </div>
-  );
+  )
 }
