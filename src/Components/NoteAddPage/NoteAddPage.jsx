@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   Form,
@@ -6,53 +6,52 @@ import {
   FormLabel,
   FormGroup,
   Select,
-} from 'react-bootstrap'
-import { useState, useEffect } from 'react'
-import { NotesProvider } from './../Provider/notesProvider'
-import CarnetNoteList from '../Carnet-Note/CarnetNoteList'
-import Formulaire from '../Carnet-Note/Formulaire'
-import { Converter, converter } from 'showdown'
-import showdown from 'showdown'
-
+} from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { NotesProvider } from "./../Provider/notesProvider";
+import { Converter, converter } from "showdown";
+import showdown from "showdown";
+import { NoteAdd } from "@material-ui/icons";
 // DE BASE MON TABLEAU EST VIDE ET DONC MES STATES AUSSI ...
 export default function NoteAddPage() {
   const [noteAdd, setNoteAdd] = useState({
-    id: '',
-    titre: '',
-    description: '',
-  })
-  let [test, setTest] = useState('')
-  const converter = new showdown.Converter()
+    id: "",
+    titre: "",
+    description: "",
+  });
+  let [test, setTest] = useState("");
+  const converter = new showdown.Converter();
   //ICI LA CLASSE PROVIDER VA NOUS PERMETTRE DE POUVOIR ADD, UPDATE, OU DELETE DES ELEMENT(CAR TTE C FONCTIONS LA SONT DEJA DECLARER
   // ..DANS LE PROVIDER... IL RESTE PLUS QU QU A LES UTILISER ICI)
-  const notesProvider = new NotesProvider()
-  const navigate = useNavigate()
-
+  const notesProvider = new NotesProvider();
+  const navigate = useNavigate();
+  var Desc = converter.makeHtml(noteAdd.description);
   function add(e) {
-    e.preventDefault()
-    notesProvider.add(noteAdd)
-    navigate('/App')
+    e.preventDefault();
+    notesProvider.add(noteAdd);
+    navigate("/App");
   }
   function ShowdownWeb() {
-    test = converter.makeHtml(noteAdd.titre)
+    test = converter.makeHtml(noteAdd.description);
   }
+  <NoteAddPage DescNote={Desc} />;
   //DONT FORGET QUE LE SetState PERMET DE CHANGER L ETAT D UN STATE
   return (
     <div>
       <header>Veuillez Saisir Vos Notes...</header>
 
       <br />
-      <Form onSubmit={e => add(e)}>
+      <Form onSubmit={(e) => add(e)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Note-Titre</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter le Titre"
             value={noteAdd.titre}
-            onChange={e => {
-              let tmp = { ...noteAdd }
-              tmp.titre = e.target.value
-              setNoteAdd(tmp)
+            onChange={(e) => {
+              let tmp = { ...noteAdd };
+              tmp.titre = e.target.value;
+              setNoteAdd(tmp);
             }}
             required
           />
@@ -73,17 +72,19 @@ export default function NoteAddPage() {
           <Form.Control
             as="textarea"
             value={noteAdd.description}
-            onChange={e => {
-              let tmp = { ...noteAdd }
-              tmp.description = e.target.value
-              setNoteAdd(tmp)
+            onChange={(e) => {
+              let tmp = { ...noteAdd };
+              tmp.description = e.target.value;
+              setNoteAdd(tmp);
             }}
             required
             rows={2}
             placeholder="description"
           />
           <div>
-            <h4 id="titre-input">{converter.makeHtml(noteAdd.titre)}</h4>
+            <p>Apercu</p>
+            <h6 id="titre-output">{noteAdd.titre}</h6>
+            <p id="note-output" dangerouslySetInnerHTML={{ __html: Desc }}></p>
           </div>
           <Button variant="light" onClick={ShowdownWeb()}>
             Mode-Web
@@ -100,5 +101,5 @@ export default function NoteAddPage() {
         Retour
       </Button>
     </div>
-  )
+  );
 }
