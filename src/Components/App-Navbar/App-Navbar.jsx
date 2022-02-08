@@ -2,6 +2,7 @@ import { Navbar,Row, Container, Nav,NavDropdown,FormControl,Button,Form, Col} fr
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import NotesPage from './../NotesPage/NotesPage';
+import ConfigurationPage from './../ConfigurationPage/ConfigurationPage';
 
 
 export default function AppNavbar() {
@@ -36,7 +37,7 @@ export default function AppNavbar() {
           </NavDropdown.Item>
         </NavDropdown>
         <Nav.Link href="#action2">Statistiques</Nav.Link>
-        <Nav.Link href="#action3">Configuration</Nav.Link>
+        <Nav.Link href="#action2" as={Link} to="/ConfigurationPage/:id">Configuration</Nav.Link>
       </Nav>
       
        
