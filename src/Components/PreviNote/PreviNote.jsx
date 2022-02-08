@@ -1,57 +1,62 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { Button,Form,FormControl,FormLabel,FormGroup,Select,Col,Container,Table,Row} from 'react-bootstrap';
-import { useState,useEffect} from 'react';
-import { NotesProvider } from './../Provider/notesProvider';
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Button,
+  Form,
+  FormControl,
+  FormLabel,
+  FormGroup,
+  Select,
+  Col,
+  Container,
+  Table,
+  Row,
+} from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { NotesProvider } from "./../Provider/notesProvider";
 
-
-export default function PreviNote(){
-    const [notes, setNotes] = useState([])
-  const notesProvider = new NotesProvider()
+export default function PreviNote() {
+  const [notes, setNotes] = useState([]);
+  const notesProvider = new NotesProvider();
 
   useEffect(() => {
-    let datas = notesProvider.getNotes()
-    setNotes(datas)
-  }, [])
+    let datas = notesProvider.getNotes();
+    setNotes(datas);
+  }, []);
 
   function remove(note) {
     let rep = window.confirm(
       `Etes-vous sur de vouloir supprimer le note ${note.titre} ${note.description}`
-    )
+    );
     if (rep) {
-      notesProvider.remove(note)
-      let datas = notesProvider.getNotes()
-      setNotes(datas)
+      notesProvider.remove(note);
+      let datas = notesProvider.getNotes();
+      setNotes(datas);
     }
   }
-  
 
   let displaynotes = notes.map((note, indice) => {
     return (
-        
-      <tr key={'notes-' + note.id}>
-        <td>{indice + 1}</td>
-        <td>{note.titre}</td>
+      <tr key={"notes-" + note.id}>
         <td>{note.description}</td>
-       
         <td>
-          
-          <Button as={Link} to={'/ModificationPage/' + note.id} variant="warning">
+          <Button
+            as={Link}
+            to={"/ModificationPage/" + note.id}
+            variant="warning"
+          >
             Modifier
           </Button>
-           
         </td>
-        <div className="md-12"> <Button as={Link} to={'/NotesPage/'+note.id}>
-                Retour
-              </Button></div>
+        <div className="md-12">
+          <Button as={Link} to={"/NotesPage/" + note.id}>
+            Retour
+          </Button>
+        </div>
       </tr>
-      
-      
-    )
-  })
+    );
+  });
   return (
-   
     <>
-      
       <Container>
         <Row>
           <Col>
@@ -62,19 +67,13 @@ export default function PreviNote(){
 
         <Row>
           <Col md={12}>
-            <div className="mb-3">
-             
-            </div>
+            <div className="mb-3"></div>
 
-            <Table striped bordered hover variant='dark'>
+            <Table striped bordered hover variant="dark">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Titre</th>
                   <th>Description</th>
-                 
                   <th>Modifier</th>
-                 
                 </tr>
               </thead>
               <tbody>{displaynotes}</tbody>
@@ -83,26 +82,8 @@ export default function PreviNote(){
         </Row>
       </Container>
     </>
-  )
+  );
 }
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* <Form>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

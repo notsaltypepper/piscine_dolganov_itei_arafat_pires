@@ -6,6 +6,7 @@ import {
   FormLabel,
   FormGroup,
   Select,
+  Card,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { NotesProvider } from "./../Provider/notesProvider";
@@ -13,7 +14,7 @@ import { Converter, converter } from "showdown";
 import showdown from "showdown";
 import { NoteAdd } from "@material-ui/icons";
 // DE BASE MON TABLEAU EST VIDE ET DONC MES STATES AUSSI ...
-export default function NoteAddPage({id}) {
+export default function NoteAddPage({ id }) {
   const [noteAdd, setNoteAdd] = useState({
     id: "",
     titre: "",
@@ -32,8 +33,6 @@ export default function NoteAddPage({id}) {
     navigate("/App");
   }
 
-
-
   function ShowdownWeb() {
     test = converter.makeHtml(noteAdd.description);
   }
@@ -49,20 +48,17 @@ export default function NoteAddPage({id}) {
       <br />
       <br />
       <br />
-
       <br />
-
-
       <br />
 
       <Form onSubmit={(e) => add(e)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>
-            <strong>Note-Titre</strong>
+            <strong>Titre</strong>
           </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Entrer le Titre"
+            placeholder="Titre"
             value={noteAdd.titre}
             onChange={(e) => {
               let tmp = { ...noteAdd };
@@ -71,20 +67,14 @@ export default function NoteAddPage({id}) {
             }}
             required
           />
-          <select name="carnets" className="filter-note-categ">
-            <option value="all">Cuisine</option>
-            <option value="uncompleted">Education</option>
-            <option value="completed">Sport</option>
-          </select>
         </Form.Group>
         <br />
 
         <Form.Group
-          className="mb-6"
+          className="mb-3"
           controlId="exampleForm.ControlTextarea1"
           id="titre-input"
         >
-
           <Form.Label>
             <strong>Description</strong>
           </Form.Label>
@@ -98,36 +88,37 @@ export default function NoteAddPage({id}) {
               setNoteAdd(tmp);
             }}
             required
-            rows={2}
-            placeholder="description"
+            placeholder="Description"
           />
- <div>
-            <p>Apercu</p>
-            <h6 id="titre-output">{noteAdd.titre}</h6>
-            <p id="note-output" dangerouslySetInnerHTML={{ __html: Desc }}></p>
-          </div>
-          <Button variant="light" onClick={ShowdownWeb()}>
-            Mode-Web
-          </Button>
-
         </Form.Group>
-         <div>
-          <p>
-            <strong>Apercu</strong>
-          </p>
-          <h6 id="titre-output">{noteAdd.titre}</h6>
-          <p id="note-output" dangerouslySetInnerHTML={{ __html: Desc }}></p>
+      </Form>
+      <Form>
+        <div>
+          <p></p>
+          <Card className="carnet-item" style={{ width: "18rem" }}>
+            <Card.Title>{noteAdd.titre}</Card.Title>
+            <Card.Body className="carnet-item">
+              <Card.Text>
+                <p
+                  id="note-output"
+                  dangerouslySetInnerHTML={{ __html: Desc }}
+                ></p>
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </div>
+      </Form>
+      <Form onSubmit={(e) => add(e)}>
         <Button variant="dark" type="submit">
           Ajouter
         </Button>
         <Button variant="secondary" type="reset">
           Annuler
         </Button>
+        <Button variant="primary" active as={Link} to="/App">
+          Retour
+        </Button>
       </Form>
-      <Button variant="primary" size="lg" active as={Link} to="/App">
-        Retour
-      </Button>
     </div>
-  )
+  );
 }
