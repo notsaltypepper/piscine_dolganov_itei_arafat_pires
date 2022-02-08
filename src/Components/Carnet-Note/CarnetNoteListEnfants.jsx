@@ -50,7 +50,7 @@ export default function CarnetNoteListEnfant({card,id}){
                 <Card.Body className="carnet-item">
                     <Card.Title value={carnets.text}>{card}</Card.Title>
                     <Card.Text>
-                    Mon Premier Carnet
+                    
                     </Card.Text>
                     <Button as={Link} to={'/NotesPage/'+ id }className="visualiser" variant="primary">Visualiser le Carnet</Button>
                     <IconButton  style={{ color: "red", cursor: "pointer" }} onClick={e => add2(e)} as={Link} to='/Favoris' aria-label="delete" color="primary">

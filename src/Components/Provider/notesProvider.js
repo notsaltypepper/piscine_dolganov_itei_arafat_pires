@@ -5,11 +5,11 @@ export class NotesProvider {
   }
 
   save() {
-    localStorage.setItem('btc-spa-notes', JSON.stringify(this.notes))
+    localStorage.setItem('notes', JSON.stringify(this.notes))
   }
 
   load() {
-    let datas = localStorage.getItem('btc-spa-notes')
+    let datas = localStorage.getItem('notes')
     if (datas === null) datas = '[]'
     datas = JSON.parse(datas)
     this.notes = datas

@@ -32,14 +32,7 @@ export default function Form({setInputText,setCarnets,carnets,inputText}){
                 </InputGroup>
            
             
-            <div className="categorie">
-                <select name="carnets" className="filter-categorie">
-                    <option value="all">Maison</option>
-                    <option value="uncompleted">Education</option>
-                    <option value="completed">Travail</option>
-
-                </select>
-            </div>
+            
         </form>
 
     )
