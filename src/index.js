@@ -28,7 +28,6 @@ ReactDOM.render(
         <Routes>
           <Route path="/Acceuil" element={<AcceuilPage />} />
           <Route path="/App" element={<App />} />
-
           <Route path="/NoteAddPage" element={<NoteAddPage />} />
           <Route path="/Favoris" element={<Favoris />} />
           <Route path="/NotesPage/:id" element={<NotesPage />} />

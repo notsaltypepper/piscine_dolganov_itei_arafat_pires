@@ -87,7 +87,8 @@ export default function NotesPage(){
                 
               }).map((note, indice) => (
                 
-                
+                //Comparer l'êtat du bouton (card ou list) dans le menu config 
+                //une idée de développement aurait été de crée 2 return en focntion de l'êtat du bouton 
                 <tr  key={'notes-' + note.id }>
                     <td>{indice + 1}</td>
                     <td>{note.titre}</td>
@@ -118,5 +119,6 @@ export default function NotesPage(){
     </>
 
   )
+  //else 
 }
 //{displaynotes}

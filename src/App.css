@@ -4,7 +4,12 @@
   box-sizing: border-box;
 }
 body {
-  background-image: linear-gradient(120deg, #4ef3d8 0%, #0b44ad 100%,#fdd804 0% );
+  background-image: linear-gradient(
+    120deg,
+    #4ef3d8 0%,
+    #0b44ad 100%,
+    #fdd804 0%
+  );
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -130,6 +135,9 @@ select {
   background: #ff6f47;
   cursor: pointer;
   pointer-events: none;
+}
+.ul {
+  list-style-type: none;
 }
 /* Transition */
 /*

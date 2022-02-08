@@ -38,7 +38,7 @@ export default function Formulaire({
     <form>
       <InputGroup className="mb-3">
         <FormControl
-          placeholder="Recipient's username"
+          placeholder="Ajouter un carnet"
           value={inputText}
           type="text"
           className="carnet-input"
