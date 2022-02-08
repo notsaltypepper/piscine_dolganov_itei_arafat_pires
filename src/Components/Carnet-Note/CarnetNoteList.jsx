@@ -8,6 +8,7 @@ import {
   Button,
   Card,
 } from 'react-bootstrap'
+import AcceuilPage from '../AcceuilPage/AcceuilPage'
 import CarnetNoteListEnfant from './CarnetNoteListEnfants'
 import Favoris from './Favoris'
 //FONCTION QUI VA NOUS PERMETTRE DE PASSER DES INFO EN MODE PROPS
@@ -16,7 +17,7 @@ import Favoris from './Favoris'
 //,(D ACCEDER AUX INFO D UN COMPOENENT))
 
 
-export default function CarnetNoteList({ carnets, id }) {
+export default function CarnetNoteList({ carnets, id, carnet_counter }) {
   return (
     //JE PASSE
     <div className="carnet-container">
@@ -32,6 +33,7 @@ export default function CarnetNoteList({ carnets, id }) {
         {carnets.map(carnet => (
           <Favoris key={carnet.id} card={carnet.text} id={carnet.id} />
         ))}
+
       </ul>
     </div>
   )

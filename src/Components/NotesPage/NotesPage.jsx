@@ -23,6 +23,8 @@ export default function NotesPage(){
     setNotes(datas)
       
   }, [])
+  var notes_counter = notes.length
+  console.log(notes_counter)
 
   function remove(note) {
     let rep = window.confirm(
